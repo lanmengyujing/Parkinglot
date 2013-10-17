@@ -13,12 +13,14 @@ public class ParkingLot {
     }
 
     public Ticket park(Car car) {
-        this.capacity--;
-        Ticket ticket = new Ticket();
-        System.out.println(car);
-        ticketForCar.put(ticket, car);
-        return ticket;
+        if (this.capacity != 0) {
+            this.capacity--;
+            Ticket ticket = new Ticket();
 
+            ticketForCar.put(ticket, car);
+            return ticket;
+        }
+        return null;
     }
 
     public int getAvailablePort() {
@@ -26,7 +28,7 @@ public class ParkingLot {
     }
 
     public Car unpark(Ticket ticket) {
-        this.capacity++;
+        this.capacity ++;
         return ticketForCar.get(ticket);
     }
 }

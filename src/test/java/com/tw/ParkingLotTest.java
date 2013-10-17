@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -57,6 +58,6 @@ public class ParkingLotTest {
          parkingLot.park(car);
          parkingLot.park(car);
 
-         parkingLot.park(car);
+         assertThat(parkingLot.park(car), nullValue());
     }
 }
