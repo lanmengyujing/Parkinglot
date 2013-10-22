@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
+    public int getCapacity() {
+        return capacity;
+    }
+
     private int capacity;
 
     Map<Ticket, Car> ticketForCar = new HashMap<>();
@@ -13,8 +17,7 @@ public class ParkingLot {
     }
 
     public Ticket park(Car car) {
-        if (this.capacity != 0) {
-            this.capacity--;
+        if (getAvailablePort() != 0) {
             Ticket ticket = new Ticket();
 
             ticketForCar.put(ticket, car);
@@ -24,11 +27,10 @@ public class ParkingLot {
     }
 
     public int getAvailablePort() {
-        return this.capacity;
+        return this.capacity - ticketForCar.size();
     }
 
     public Car unpark(Ticket ticket) {
-        this.capacity ++;
-        return ticketForCar.get(ticket);
+        return ticketForCar.remove(ticket);
     }
 }
