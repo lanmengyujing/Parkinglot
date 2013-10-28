@@ -19,8 +19,8 @@ public class SmartBoyTest {
     public void setUp() throws Exception {
         car = new Car();
 
-        parkingLot1 = new ParkingLot(10);
-        parkingLot2 = new ParkingLot(20);
+        parkingLot1 = new ParkingLot(20);
+        parkingLot2 = new ParkingLot(10);
         List<ParkingLot> parkingLots = Arrays.asList(parkingLot1, parkingLot2);
         boy = new SmartBoy(parkingLots);
     }
@@ -28,8 +28,8 @@ public class SmartBoyTest {
     @Test
     public void should_park_car_in_parking_lot_with_more_free_lot() throws Exception {
         boy.park(car);
-        assertThat(parkingLot2.getAvailablePort(), is(19));
-        assertThat(parkingLot1.getAvailablePort(), is(10));
+        assertThat(parkingLot1.getAvailablePort(), is(19));
+        assertThat(parkingLot2.getAvailablePort(), is(10));
     }
 
 

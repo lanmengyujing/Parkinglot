@@ -13,18 +13,20 @@ public class SmartBoy {
 
     public Ticket park(Car car) {
         SmartPark parker = new SmartPark();
-        ParkingLot lot = parker.getFreeLot(parkingLots);
+        ParkingLot lot = parker.chooseFreePort(parkingLots);
         return lot.park(car);
     }
 
 
     private class SmartPark {
-        public ParkingLot getFreeLot(List<ParkingLot> parkingLots) {
+        public ParkingLot chooseFreePort(List<ParkingLot> parkingLots) {
             int maxAvailablePort = 0;
             ParkingLot lot = null;
             for (ParkingLot parkingLot : parkingLots) {
-                maxAvailablePort = Math.max(parkingLot.getAvailablePort(), maxAvailablePort);
-                lot = parkingLot;
+                if (parkingLot.getAvailablePort() > maxAvailablePort) {
+                    maxAvailablePort = parkingLot.getAvailablePort();
+                    lot = parkingLot;
+                }
             }
             return lot;
         }

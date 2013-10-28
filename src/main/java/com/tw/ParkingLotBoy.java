@@ -3,23 +3,17 @@ package com.tw;
 import java.util.List;
 
 public class ParkingLotBoy implements Parker {
+    public List<ParkingLot> parkingLots;
+    public NormalChooser normalChooser;
 
-
-    public static List<ParkingLot> getParkingLots() {
-        return parkingLots;
-    }
-
-    public  static List<ParkingLot> parkingLots;
-    public  NormalPark normalPark;
-
-    public ParkingLotBoy(List<ParkingLot> parkingLots, NormalPark normalPark ) {
+    public ParkingLotBoy(List<ParkingLot> parkingLots, NormalChooser normalChooser) {
         this.parkingLots = parkingLots;
-        this.normalPark = normalPark;
+        this.normalChooser = normalChooser;
     }
 
     public Ticket park(Car car) {
-
-        return normalPark.park(car);
+        ParkingLot lot = normalChooser.chooseFreePort(parkingLots);
+        return lot.park(car);
     }
 
     public Car unpark(Ticket ticket) {
