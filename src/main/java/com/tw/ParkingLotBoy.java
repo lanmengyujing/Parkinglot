@@ -1,8 +1,11 @@
 package com.tw;
 
+import com.tw.stategy.Chooser;
+import com.tw.stategy.NormalChooser;
+
 import java.util.List;
 
-public class ParkingLotBoy implements Parker {
+public class ParkingLotBoy implements Chooser {
     public List<ParkingLot> parkingLots;
     public NormalChooser normalChooser;
 

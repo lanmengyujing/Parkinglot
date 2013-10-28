@@ -1,5 +1,6 @@
 package com.tw;
 
+import com.tw.stategy.NormalChooser;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,8 +1,10 @@
-package com.tw;
+package com.tw.stategy;
+
+import com.tw.ParkingLot;
 
 import java.util.List;
 
-class NormalChooser {
+public class NormalChooser {
     public ParkingLot chooseFreePort(List<ParkingLot> parkingLots) {
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.getAvailablePort() != 0) {
