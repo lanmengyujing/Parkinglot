@@ -15,11 +15,12 @@ public class ParkingLotBoyTest {
     private ParkingLotBoy boy;
     private Car car;
 
+
     @Before
     public void setUp() throws Exception {
         car = new Car();
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(1), new ParkingLot(2));
-        boy = new ParkingLotBoy(parkingLots);
+        boy = new ParkingLotBoy(parkingLots, new NormalPark());
     }
 
     @Test

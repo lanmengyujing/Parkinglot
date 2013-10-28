@@ -2,30 +2,34 @@ package com.tw;
 
 import java.util.List;
 
-public class ParkingLotBoy {
+public class ParkingLotBoy implements Parker {
 
 
-    private List<ParkingLot> parkingLots;
+    public static List<ParkingLot> getParkingLots() {
+        return parkingLots;
+    }
 
-    public ParkingLotBoy(List<ParkingLot> parkingLots) {
+    public  static List<ParkingLot> parkingLots;
+    public  NormalPark normalPark;
+
+    public ParkingLotBoy(List<ParkingLot> parkingLots, NormalPark normalPark ) {
         this.parkingLots = parkingLots;
+        this.normalPark = normalPark;
     }
 
     public Ticket park(Car car) {
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.getAvailablePort() != 0) {
-                return parkingLot.park(car);
-            }
-        }
-        return null;
+
+        return normalPark.park(car);
     }
 
     public Car unpark(Ticket ticket) {
         for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.unpark(ticket) != null) {
-                return parkingLot.unpark(ticket);
+            Car car = parkingLot.unpark(ticket);
+            if (car != null) {
+                return car;
             }
         }
         return null;
     }
+
 }

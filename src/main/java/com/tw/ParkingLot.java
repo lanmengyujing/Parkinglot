@@ -26,6 +26,7 @@ public class ParkingLot {
         return null;
     }
 
+
     public int getAvailablePort() {
         return this.capacity - ticketForCar.size();
     }
