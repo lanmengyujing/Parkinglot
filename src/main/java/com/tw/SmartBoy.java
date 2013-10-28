@@ -5,19 +5,16 @@ import com.tw.stategy.SmartChooser;
 import java.util.List;
 
 public class SmartBoy {
-
     private List<ParkingLot> parkingLots;
+    private SmartChooser smartChooser;
 
-    public SmartBoy(List<ParkingLot> parkingLots) {
+    public SmartBoy(List<ParkingLot> parkingLots, SmartChooser smartChooser) {
+        this.smartChooser = smartChooser;
         this.parkingLots = parkingLots;
     }
 
-
     public Ticket park(Car car) {
-        SmartChooser parker = new SmartChooser();
-        ParkingLot lot = parker.chooseFreePort(parkingLots);
+        ParkingLot lot = smartChooser.chooseFreePort(parkingLots);
         return lot.park(car);
     }
-
-
 }

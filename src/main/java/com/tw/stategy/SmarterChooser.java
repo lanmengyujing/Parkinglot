@@ -4,7 +4,8 @@ import com.tw.ParkingLot;
 
 import java.util.List;
 
-public class SmarterChooser {
+public class SmarterChooser implements Chooser{
+    @Override
     public ParkingLot chooseFreePort(List<ParkingLot> parkingLots) {
         float maxAvailableRate = (float) 0.0;
         float currentRate;

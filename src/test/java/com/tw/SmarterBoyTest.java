@@ -1,5 +1,6 @@
 package com.tw;
 
+import com.tw.stategy.SmarterChooser;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,7 +25,7 @@ public class SmarterBoyTest {
         parkingLot1 = new ParkingLot(2);
         parkingLot2 = new ParkingLot(5);
         List<ParkingLot> parkingLots = Arrays.asList(parkingLot1, parkingLot2);
-        boy = new SmarterBoy(parkingLots);
+        boy = new SmarterBoy(parkingLots, new SmarterChooser());
     }
 
     @Test
