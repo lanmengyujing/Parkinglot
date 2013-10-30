@@ -20,7 +20,6 @@ public class ParkingLotBoyTest {
     @Before
     public void setUp() throws Exception {
         car = new Car();
-
 //        ParkingLot lot = mock(ParkingLot.class);
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(1), new ParkingLot(2));
         boy = new ParkingLotBoy(parkingLots, new NormalChooser());
