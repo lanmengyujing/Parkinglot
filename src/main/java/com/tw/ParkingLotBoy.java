@@ -1,21 +1,20 @@
 package com.tw;
 
-import com.tw.stategy.NormalChooser;
+import com.tw.stategy.Chooser;
 
 import java.util.List;
 
 public class ParkingLotBoy {
     public List<ParkingLot> parkingLots;
-    public NormalChooser normalChooser;
+    public Chooser chooser;
 
-    public ParkingLotBoy(List<ParkingLot> parkingLots, NormalChooser normalChooser) {
+    public ParkingLotBoy(List<ParkingLot> parkingLots, Chooser chooser) {
         this.parkingLots = parkingLots;
-        this.normalChooser = normalChooser;
+        this.chooser = chooser;
     }
 
     public Ticket park(Car car) {
-        ParkingLot lot = normalChooser.chooseFreePort(parkingLots);
-        return lot.park(car);
+        return chooser.chooseFreePort(parkingLots).park(car);
     }
 
     public Car unpark(Ticket ticket) {
@@ -27,5 +26,4 @@ public class ParkingLotBoy {
         }
         return null;
     }
-
 }

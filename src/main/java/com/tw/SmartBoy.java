@@ -1,20 +1,15 @@
 package com.tw;
 
-import com.tw.stategy.SmartChooser;
+import com.tw.stategy.Chooser;
 
 import java.util.List;
 
-public class SmartBoy {
-    private List<ParkingLot> parkingLots;
-    private SmartChooser smartChooser;
-
-    public SmartBoy(List<ParkingLot> parkingLots, SmartChooser smartChooser) {
-        this.smartChooser = smartChooser;
-        this.parkingLots = parkingLots;
+public class SmartBoy extends ParkingLotBoy {
+    public SmartBoy(List<ParkingLot> parkingLots, Chooser chooser) {
+        super(parkingLots, chooser);
     }
 
     public Ticket park(Car car) {
-        ParkingLot lot = smartChooser.chooseFreePort(parkingLots);
-        return lot.park(car);
+        return chooser.chooseFreePort(parkingLots).park(car);
     }
 }

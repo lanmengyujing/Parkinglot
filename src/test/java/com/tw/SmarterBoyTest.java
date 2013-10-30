@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SmarterBoyTest {
-    private SmarterBoy boy;
+    private ParkingLotBoy boy;
     private Car car1;
     private Car car2;
     ParkingLot parkingLot1;
@@ -25,7 +25,7 @@ public class SmarterBoyTest {
         parkingLot1 = new ParkingLot(2);
         parkingLot2 = new ParkingLot(5);
         List<ParkingLot> parkingLots = Arrays.asList(parkingLot1, parkingLot2);
-        boy = new SmarterBoy(parkingLots, new SmarterChooser());
+        boy = new ParkingLotBoy(parkingLots, new SmarterChooser());
     }
 
     @Test
@@ -37,6 +37,4 @@ public class SmarterBoyTest {
         assertThat(parkingLot1.getAvailablePort(), is(1));
         assertThat(parkingLot2.getAvailablePort(), is(4));
     }
-
-
 }
