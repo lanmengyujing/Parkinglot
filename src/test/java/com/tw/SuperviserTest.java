@@ -35,15 +35,15 @@ public class SuperviserTest {
     }
 
     private Superviser createSuperviser() {
-        ParkerManager manager1 = createManagerWithOneBoyHasFreeParkinglots();
-        ParkerManager manager2 = createManagerWithOneBoyHasFreeParkinglots();
+        Parkable manager1 = createManagerWithOneBoyHasFreeParkinglots();
+        Parkable manager2 = createManagerWithOneBoyHasFreeParkinglots();
 
-        List<ParkerManager> managers = Arrays.asList(manager1, manager2);
+        List<Parkable> managers = Arrays.asList(manager1, manager2);
         return new Superviser(managers);
     }
 
-    private ParkerManager createManagerWithOneBoyHasFreeParkinglots() {
-        List<ParkingLotBoy> boys = new ArrayList<>();
+    private Parkable createManagerWithOneBoyHasFreeParkinglots() {
+        List<Parkable> boys = new ArrayList<>();
         ParkingLot parkable1 = new ParkingLot(20);
         List<ParkingLot> parkingLots1 = new ArrayList<>();
         parkingLots1.add(parkable1);

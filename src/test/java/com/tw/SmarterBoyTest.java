@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SmarterBoyTest {
-    private ParkingLotBoy boy;
+    private Parkable boy;
     private Car car1;
     private Car car2;
     ParkingLot parkingLot1;

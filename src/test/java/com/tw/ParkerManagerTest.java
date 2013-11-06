@@ -14,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ParkerManagerTest {
 
-    private List<ParkingLotBoy> boys = new ArrayList<>();
+    private List<Parkable> boys = new ArrayList<>();
     private Car car;
     private ParkingLot parkingLot2;
 
@@ -26,7 +26,7 @@ public class ParkerManagerTest {
 
     @Test
     public void should_let_the_park_boys_to_park_car_when_park_boys_have_free_carports() throws Exception {
-        ParkerManager manager = createManagerWithOneBoyHasFreeParkinglots();
+        Parkable manager = createManagerWithOneBoyHasFreeParkinglots();
 
         Ticket ticket = manager.park(car);
 
@@ -35,7 +35,7 @@ public class ParkerManagerTest {
 
     @Test
     public void should_let_the_park_boys_to_unpark_car_when_car_is_parked_in_parkinglot_of_parking_boys() throws Exception {
-        ParkerManager manager = createManagerWithOneBoyHasFreeParkinglots();
+        Parkable manager = createManagerWithOneBoyHasFreeParkinglots();
         Ticket ticket = manager.park(car);
 
         Car fetchedCar = manager.unpark(ticket);
@@ -46,7 +46,7 @@ public class ParkerManagerTest {
 
     @Test
     public void should_park_car_by_himself_when_park_boys_do_not_have_free_carports_and_self_have_carports() throws Exception {
-        ParkerManager manager = createManagerWithBoysNotHaveFreeParkinglots();
+        Parkable manager = createManagerWithBoysNotHaveFreeParkinglots();
 
         Ticket ticket = manager.park(car);
 
@@ -55,7 +55,7 @@ public class ParkerManagerTest {
 
     @Test
     public void should_unable_park_car_when_park_boys_do_not_have_free_carports_and_self_do_not_have_carports() throws Exception {
-        ParkerManager manager = createManagerWithBoysNotHaveFreeParkinglots();
+        Parkable manager = createManagerWithBoysNotHaveFreeParkinglots();
         parkingLot2.park(new Car());
         parkingLot2.park(new Car());
 
@@ -63,7 +63,7 @@ public class ParkerManagerTest {
     }
 
 
-    private ParkerManager createManagerWithOneBoyHasFreeParkinglots() {
+    private Parkable createManagerWithOneBoyHasFreeParkinglots() {
         ParkingLot parkingLot1 = new ParkingLot(20);
         List<ParkingLot> parkingLots1 = new ArrayList<>();
         parkingLots1.add(parkingLot1);
@@ -76,11 +76,11 @@ public class ParkerManagerTest {
         return new ParkerManager(boys, parkingLots2, new NormalChooser());
     }
 
-    private ParkerManager createManagerWithBoysNotHaveFreeParkinglots() {
+    private Parkable createManagerWithBoysNotHaveFreeParkinglots() {
         ParkingLot parkingLot1 = new ParkingLot(1);
         List<ParkingLot> parkingLots1 = new ArrayList<>();
         parkingLots1.add(parkingLot1);
-        ParkingLotBoy boy = new ParkingLotBoy(parkingLots1, new NormalChooser());
+        Parkable boy = new ParkingLotBoy(parkingLots1, new NormalChooser());
         boy.park(new Car());
         boys.add(boy);
 

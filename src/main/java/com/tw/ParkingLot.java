@@ -1,6 +1,6 @@
 package com.tw;
 
-public class ParkingLot {
+public class ParkingLot implements Parkable{
     private int capacity;
     private int freeCarport;
 
@@ -17,18 +17,22 @@ public class ParkingLot {
         return freeCarport;
     }
 
-
+    @Override
     public Ticket park(Car car) {
         if (freeCarport != 0) {
             freeCarport--;
-            Ticket ticket = new Ticket(car);
-            return ticket;
+            return new Ticket(car);
         }
         return null;
     }
 
+    @Override
     public Car unpark(Ticket ticket) {
         freeCarport++;
         return ticket.getCar();
+    }
+
+    public float freeRate() {
+        return getFreeCarport() / getCapacity();
     }
 }

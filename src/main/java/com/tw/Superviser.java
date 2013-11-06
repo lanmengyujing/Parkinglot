@@ -2,16 +2,17 @@ package com.tw;
 
 import java.util.List;
 
-public class Superviser{
-    private List<ParkerManager> managers;
+public class Superviser implements Parkable{
+    private List<Parkable> managers;
 
-    public Superviser(List<ParkerManager> managers) {
+    public Superviser(List<Parkable> managers) {
         this.managers = managers;
     }
 
+    @Override
     public Ticket park(Car car) {
         Ticket ticket = null;
-        for (ParkerManager manager : managers) {
+        for (Parkable manager : managers) {
             ticket = manager.park(car);
             if (ticket != null) {
                 break;
@@ -22,7 +23,7 @@ public class Superviser{
 
     public Car unpark(Ticket ticket) {
         Car car = null;
-        for (ParkerManager manager : managers) {
+        for (Parkable manager : managers) {
             car = manager.unpark(ticket);
             if (car != null) {
                 break;

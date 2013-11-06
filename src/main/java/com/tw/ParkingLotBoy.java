@@ -4,7 +4,7 @@ import com.tw.stategy.Chooser;
 
 import java.util.List;
 
-public class ParkingLotBoy {
+public class ParkingLotBoy implements Parkable{
     public List<ParkingLot> parkingLots;
     public Chooser chooser;
 
@@ -13,6 +13,7 @@ public class ParkingLotBoy {
         this.chooser = chooser;
     }
 
+    @Override
     public Ticket park(Car car) {
         Ticket ticket = null;
         ParkingLot parkingLot = chooser.chooseFreePort(parkingLots);
@@ -22,6 +23,7 @@ public class ParkingLotBoy {
         return ticket;
     }
 
+    @Override
     public Car unpark(Ticket ticket) {
         for (ParkingLot parkingLot : parkingLots) {
             Car car = parkingLot.unpark(ticket);
