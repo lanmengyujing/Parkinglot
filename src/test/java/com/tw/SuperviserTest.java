@@ -17,29 +17,25 @@ public class SuperviserTest {
 
     @Test
     public void should_let_manager_park_car() throws Exception {
-        Superviser superviser = createSuperviser();
+        Parkable manager1 = createManagerWithOneBoyHasFreeParkinglots();
+        Parkable manager2 = createManagerWithOneBoyHasFreeParkinglots();
+        List<Parkable> managers = Arrays.asList(manager1, manager2);
 
-        Ticket ticket = superviser.park(car);
+        Ticket ticket = new ParkingLotBoy(managers, new NormalChooser()).park(car);
 
         assertThat(ticket, notNullValue());
     }
 
     @Test
     public void should_let_manager_unpark_car() throws Exception {
-        Superviser superviser = createSuperviser();
-
-        Ticket ticket = superviser.park(car);
-        Car car1 = superviser.unpark(ticket);
-
-        assertThat(car1, sameInstance(car));
-    }
-
-    private Superviser createSuperviser() {
         Parkable manager1 = createManagerWithOneBoyHasFreeParkinglots();
         Parkable manager2 = createManagerWithOneBoyHasFreeParkinglots();
-
         List<Parkable> managers = Arrays.asList(manager1, manager2);
-        return new Superviser(managers);
+
+        Ticket ticket = new ParkingLotBoy(managers, new NormalChooser()).park(car);
+        Car car1 = new ParkingLotBoy(managers, new NormalChooser()).unpark(ticket);
+
+        assertThat(car1, sameInstance(car));
     }
 
     private Parkable createManagerWithOneBoyHasFreeParkinglots() {

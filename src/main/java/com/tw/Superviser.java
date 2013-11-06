@@ -7,7 +7,7 @@ import java.util.List;
 public class Superviser extends ParkingLotBoy implements Parkable{
     private List<Parkable> managers;
 
-    public Superviser(List<Parkable> managers) {
+    private Superviser(List<Parkable> managers) {
         super(managers, new NormalChooser());
         this.managers = managers;
     }
