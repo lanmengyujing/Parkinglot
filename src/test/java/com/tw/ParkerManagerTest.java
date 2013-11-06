@@ -16,7 +16,7 @@ public class ParkerManagerTest {
 
     private List<Parkable> boys = new ArrayList<>();
     private Car car;
-    private ParkingLot parkingLot2;
+    private Parkable parkingLot2;
 
 
     @Before
@@ -64,29 +64,29 @@ public class ParkerManagerTest {
 
 
     private Parkable createManagerWithOneBoyHasFreeParkinglots() {
-        ParkingLot parkingLot1 = new ParkingLot(20);
-        List<ParkingLot> parkingLots1 = new ArrayList<>();
+        Parkable parkingLot1 = new ParkingLot(20);
+        List<Parkable> parkingLots1 = new ArrayList<>();
         parkingLots1.add(parkingLot1);
         boys.add(new ParkingLotBoy(parkingLots1, new NormalChooser()));
 
 
-        ParkingLot parkingLot2 = new ParkingLot(10);
-        List<ParkingLot> parkingLots2 = new ArrayList<>();
+        Parkable parkingLot2 = new ParkingLot(10);
+        List<Parkable> parkingLots2 = new ArrayList<>();
         parkingLots2.add(parkingLot2);
-        return new ParkerManager(boys, parkingLots2, new NormalChooser());
+        return ParkerManager.createParkerManager(boys, parkingLots2, new NormalChooser());
     }
 
     private Parkable createManagerWithBoysNotHaveFreeParkinglots() {
-        ParkingLot parkingLot1 = new ParkingLot(1);
-        List<ParkingLot> parkingLots1 = new ArrayList<>();
+        Parkable parkingLot1 = new ParkingLot(1);
+        List<Parkable> parkingLots1 = new ArrayList<>();
         parkingLots1.add(parkingLot1);
         Parkable boy = new ParkingLotBoy(parkingLots1, new NormalChooser());
         boy.park(new Car());
         boys.add(boy);
 
         parkingLot2 = new ParkingLot(2);
-        List<ParkingLot> parkingLots2 = new ArrayList<>();
+        List<Parkable> parkingLots2 = new ArrayList<>();
         parkingLots2.add(parkingLot2);
-        return new ParkerManager(boys, parkingLots2, new NormalChooser());
+        return ParkerManager.createParkerManager(boys, parkingLots2, new NormalChooser());
     }
 }

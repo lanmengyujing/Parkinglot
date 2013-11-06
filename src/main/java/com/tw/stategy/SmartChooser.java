@@ -1,15 +1,15 @@
 package com.tw.stategy;
 
-import com.tw.ParkingLot;
+import com.tw.Parkable;
 
 import java.util.List;
 
 public class SmartChooser implements Chooser{
     @Override
-    public ParkingLot chooseFreePort(List<ParkingLot> parkingLots) {
+    public Parkable chooseFreePort(List<Parkable> parkingLots) {
         int maxAvailablePort = 0;
-        ParkingLot lot = null;
-        for (ParkingLot parkingLot : parkingLots) {
+        Parkable lot = null;
+        for (Parkable parkingLot : parkingLots) {
             if (parkingLot.getFreeCarport() > maxAvailablePort) {
                 maxAvailablePort = parkingLot.getFreeCarport();
                 lot = parkingLot;

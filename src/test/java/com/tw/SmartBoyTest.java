@@ -13,8 +13,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class SmartBoyTest {
     private ParkingLotBoy boy;
     private Car car;
-    ParkingLot parkingLot1;
-    ParkingLot parkingLot2;
+    Parkable parkingLot1;
+    Parkable parkingLot2;
 
     @Before
     public void setUp() throws Exception {
@@ -22,7 +22,7 @@ public class SmartBoyTest {
 
         parkingLot1 = new ParkingLot(20);
         parkingLot2 = new ParkingLot(10);
-        List<ParkingLot> parkingLots = Arrays.asList(parkingLot1, parkingLot2);
+        List<Parkable> parkingLots = Arrays.asList(parkingLot1, parkingLot2);
         boy = new ParkingLotBoy(parkingLots, new SmartChooser());
     }
 

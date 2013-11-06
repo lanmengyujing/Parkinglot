@@ -1,13 +1,13 @@
 package com.tw.stategy;
 
-import com.tw.ParkingLot;
+import com.tw.Parkable;
 
 import java.util.List;
 
 public class NormalChooser implements Chooser {
     @Override
-    public ParkingLot chooseFreePort(List<ParkingLot> parkingLots) {
-        for (ParkingLot parkingLot : parkingLots) {
+    public Parkable chooseFreePort(List<Parkable> parkingLots) {
+        for (Parkable parkingLot : parkingLots) {
             if (parkingLot.getFreeCarport() != 0) {
                 return parkingLot;
             }

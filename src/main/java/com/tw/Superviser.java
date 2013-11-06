@@ -1,11 +1,14 @@
 package com.tw;
 
+import com.tw.stategy.NormalChooser;
+
 import java.util.List;
 
-public class Superviser implements Parkable{
+public class Superviser extends ParkingLotBoy implements Parkable{
     private List<Parkable> managers;
 
     public Superviser(List<Parkable> managers) {
+        super(managers, new NormalChooser());
         this.managers = managers;
     }
 
@@ -31,4 +34,5 @@ public class Superviser implements Parkable{
         }
         return car;
     }
+
 }

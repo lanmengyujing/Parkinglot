@@ -1,9 +1,9 @@
 package com.tw.stategy;
 
-import com.tw.ParkingLot;
+import com.tw.Parkable;
 
 import java.util.List;
 
 public interface Chooser {
-    ParkingLot chooseFreePort(List<ParkingLot> parkingLots);
+    Parkable chooseFreePort(List<Parkable> parkingLots);
 }

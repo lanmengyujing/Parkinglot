@@ -1,16 +1,16 @@
 package com.tw.stategy;
 
-import com.tw.ParkingLot;
+import com.tw.Parkable;
 
 import java.util.List;
 
 public class SmarterChooser implements Chooser{
     @Override
-    public ParkingLot chooseFreePort(List<ParkingLot> parkingLots) {
+    public Parkable chooseFreePort(List<Parkable> parkingLots) {
         float maxAvailableRate = (float) 0.0;
         float currentRate;
-        ParkingLot freeParkingLot = null;
-        for (ParkingLot parkingLot : parkingLots) {
+        Parkable freeParkingLot = null;
+        for (Parkable parkingLot : parkingLots) {
             currentRate = parkingLot.freeRate();
             if (currentRate > maxAvailableRate) {
                 maxAvailableRate = currentRate;

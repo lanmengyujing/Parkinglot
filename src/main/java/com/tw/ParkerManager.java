@@ -5,18 +5,31 @@ import com.tw.stategy.Chooser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkerManager implements Parkable {
+public class ParkerManager extends ParkingLotBoy implements Parkable {
     private List<Parkable> parkables = new ArrayList<Parkable>();
-    private Chooser chooser;
 
-    public ParkerManager(List<Parkable> boys, List<ParkingLot> parkingLots, Chooser chooser) {
-        this.chooser = chooser;
+    private ParkerManager(List<Parkable> boys, List<Parkable> parkingLots, Chooser chooser) {
+        super(parkingLots, chooser);
+
         for (Parkable boy : boys) {
             parkables.add(boy);
         }
-        for (ParkingLot parkingLot : parkingLots) {
+        for (Parkable parkingLot : parkingLots) {
             parkables.add(parkingLot);
         }
+    }
+
+    private ParkerManager(List<Parkable> parkingLots, Chooser chooser) {
+        super(parkingLots, chooser);
+
+        for (Parkable parkingLot : parkingLots) {
+            parkables.add(parkingLot);
+        }
+    }
+
+    public static ParkingLotBoy createParkerManager(List<Parkable> boys, List<Parkable> parkingLots, Chooser chooser) {
+
+        return new ParkingLotBoy(parkingLots, chooser);
     }
 
     @Override

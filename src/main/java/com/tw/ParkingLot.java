@@ -9,14 +9,6 @@ public class ParkingLot implements Parkable{
         this.freeCarport = capacity;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public int getFreeCarport() {
-        return freeCarport;
-    }
-
     @Override
     public Ticket park(Car car) {
         if (freeCarport != 0) {
@@ -32,6 +24,17 @@ public class ParkingLot implements Parkable{
         return ticket.getCar();
     }
 
+    @Override
+    public int getCapacity() {
+        return capacity;
+    }
+
+    @Override
+    public int getFreeCarport() {
+        return freeCarport;
+    }
+
+    @Override
     public float freeRate() {
         return getFreeCarport() / getCapacity();
     }

@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class ParkingLotTest {
-    ParkingLot parkingLot;
+    Parkable parkingLot;
     Car car;
 
     @Before

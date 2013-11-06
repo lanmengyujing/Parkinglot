@@ -14,8 +14,8 @@ public class SmarterBoyTest {
     private Parkable boy;
     private Car car1;
     private Car car2;
-    ParkingLot parkingLot1;
-    ParkingLot parkingLot2;
+    Parkable parkingLot1;
+    Parkable parkingLot2;
 
     @Before
     public void setUp() throws Exception {
@@ -24,7 +24,7 @@ public class SmarterBoyTest {
 
         parkingLot1 = new ParkingLot(2);
         parkingLot2 = new ParkingLot(5);
-        List<ParkingLot> parkingLots = Arrays.asList(parkingLot1, parkingLot2);
+        List<Parkable> parkingLots = Arrays.asList(parkingLot1, parkingLot2);
         boy = new ParkingLotBoy(parkingLots, new SmarterChooser());
     }
 
