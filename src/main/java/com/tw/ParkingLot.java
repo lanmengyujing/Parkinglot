@@ -1,8 +1,5 @@
 package com.tw;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ParkingLot {
     private int capacity;
     private int freeCarport;
@@ -11,8 +8,6 @@ public class ParkingLot {
         this.capacity = capacity;
         this.freeCarport = capacity;
     }
-
-    Map<Ticket, Car> ticketForCar = new HashMap<>();
 
     public int getCapacity() {
         return capacity;

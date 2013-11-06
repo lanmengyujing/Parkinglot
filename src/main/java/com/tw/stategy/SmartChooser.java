@@ -10,9 +10,7 @@ public class SmartChooser implements Chooser{
         int maxAvailablePort = 0;
         ParkingLot lot = null;
         for (ParkingLot parkingLot : parkingLots) {
-            //        return this.capacity - ticketForCar.size();
             if (parkingLot.getFreeCarport() > maxAvailablePort) {
-                //        return this.capacity - ticketForCar.size();
                 maxAvailablePort = parkingLot.getFreeCarport();
                 lot = parkingLot;
             }
