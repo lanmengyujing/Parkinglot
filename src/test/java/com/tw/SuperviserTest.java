@@ -53,6 +53,7 @@ public class SuperviserTest {
         Parkable parkable2 = new ParkingLot(10);
         List<Parkable> parkingLots2 = new ArrayList<>();
         parkingLots2.add(parkable2);
-        return ParkerManager.createParkerManager(boys, parkingLots2, new NormalChooser());
+
+        return new ParkingLotBoy(parkingLots2, new NormalChooser());
     }
 }

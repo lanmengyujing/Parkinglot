@@ -73,7 +73,8 @@ public class ParkerManagerTest {
         Parkable parkingLot2 = new ParkingLot(10);
         List<Parkable> parkingLots2 = new ArrayList<>();
         parkingLots2.add(parkingLot2);
-        return ParkerManager.createParkerManager(boys, parkingLots2, new NormalChooser());
+
+        return new ParkingLotBoy(parkingLots2, new NormalChooser());
     }
 
     private Parkable createManagerWithBoysNotHaveFreeParkinglots() {
@@ -87,6 +88,7 @@ public class ParkerManagerTest {
         parkingLot2 = new ParkingLot(2);
         List<Parkable> parkingLots2 = new ArrayList<>();
         parkingLots2.add(parkingLot2);
-        return ParkerManager.createParkerManager(boys, parkingLots2, new NormalChooser());
+
+        return new ParkingLotBoy(parkingLots2, new NormalChooser());
     }
 }
