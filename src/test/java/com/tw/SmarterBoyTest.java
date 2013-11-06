@@ -31,10 +31,10 @@ public class SmarterBoyTest {
     @Test
     public void should_park_car_in_parking_lot_with_more_free_lot() throws Exception {
         boy.park(car1);
-        assertThat(parkingLot1.getAvailablePort(), is(1));
-        assertThat(parkingLot2.getAvailablePort(), is(5));
+        assertThat(parkingLot1.getFreeCarport(), is(1));
+        assertThat(parkingLot2.getFreeCarport(), is(5));
         boy.park(car2);
-        assertThat(parkingLot1.getAvailablePort(), is(1));
-        assertThat(parkingLot2.getAvailablePort(), is(4));
+        assertThat(parkingLot1.getFreeCarport(), is(1));
+        assertThat(parkingLot2.getFreeCarport(), is(4));
     }
 }

@@ -16,12 +16,19 @@ public class ParkerManager {
     }
 
     public Ticket park(Car car) {
+        Ticket ticket = null;
         for (ParkingLotBoy boy : boys) {
-            if (boy.hasAvailableCarport()) {
-                return boy.park(car);
+            ticket = boy.park(car);
+            if (ticket != null) {
+                return ticket;
             }
         }
-        return chooser.chooseFreePort(parkingLots).park(car);
+
+        ParkingLot parkingLot = chooser.chooseFreePort(parkingLots);
+        if (parkingLot != null) {
+            ticket = parkingLot.park(car);
+        }
+        return ticket;
     }
 
     public Car unpark(Ticket ticket) {

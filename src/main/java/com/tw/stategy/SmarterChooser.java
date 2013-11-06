@@ -11,7 +11,8 @@ public class SmarterChooser implements Chooser{
         float currentRate;
         ParkingLot freeParkingLot = null;
         for (ParkingLot parkingLot : parkingLots) {
-            currentRate = parkingLot.getAvailablePort() / parkingLot.getCapacity();
+            //        return this.capacity - ticketForCar.size();
+            currentRate = parkingLot.getFreeCarport() / parkingLot.getCapacity();
             if (currentRate > maxAvailableRate) {
                 maxAvailableRate = currentRate;
                 freeParkingLot = parkingLot;

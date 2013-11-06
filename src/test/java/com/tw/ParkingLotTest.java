@@ -35,7 +35,7 @@ public class ParkingLotTest {
     @Test
     public void should_reduce_carports_when_park_car() throws Exception {
         parkingLot.park(car);
-        assertThat(parkingLot.getAvailablePort(), is(2));
+        assertThat(parkingLot.getFreeCarport(), is(2));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class ParkingLotTest {
         assertThat(fetchedCar, sameInstance(car));
         assertThat(fetchedCar2, sameInstance(car2));
 
-        assertThat(parkingLot.getAvailablePort(), is(3));
+        assertThat(parkingLot.getFreeCarport(), is(3));
     }
 
     @Test

@@ -29,8 +29,8 @@ public class SmartBoyTest {
     @Test
     public void should_park_car_in_parking_lot_with_more_free_lot() throws Exception {
         boy.chooser.chooseFreePort(boy.parkingLots).park(car);
-        assertThat(parkingLot1.getAvailablePort(), is(19));
-        assertThat(parkingLot2.getAvailablePort(), is(10));
+        assertThat(parkingLot1.getFreeCarport(), is(19));
+        assertThat(parkingLot2.getFreeCarport(), is(10));
     }
 
 
