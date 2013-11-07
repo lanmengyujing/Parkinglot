@@ -1,6 +1,6 @@
 package com.tw;
 
-public class ParkingLot implements Parkable{
+public class ParkingLot implements Parkable {
     private int capacity;
     private int freeCarport;
 
@@ -37,5 +37,15 @@ public class ParkingLot implements Parkable{
     @Override
     public float freeRate() {
         return getFreeCarport() / getCapacity();
+    }
+
+    @Override
+    public StringBuilder apply(Reporter reporter) {
+        return reporter.buildReport(toString());
+    }
+
+    @Override
+    public String toString() {
+        return "ParkingLot"+ "(" + this.getCapacity() + "/" + this.getFreeCarport() + ")" + "\n";
     }
 }

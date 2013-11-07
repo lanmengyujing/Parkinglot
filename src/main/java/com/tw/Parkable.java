@@ -10,4 +10,6 @@ public interface Parkable {
     int getCapacity();
 
     float freeRate();
+
+    StringBuilder apply(Reporter reporter);
 }

@@ -13,6 +13,7 @@ public class ParkingLotBoy implements Parkable {
         this.chooser = chooser;
     }
 
+
     @Override
     public Ticket park(Car car) {
         Ticket ticket = null;
@@ -56,4 +57,22 @@ public class ParkingLotBoy implements Parkable {
     public float freeRate() {
         return getFreeCarport() / getCapacity();
     }
+
+    @Override
+    public StringBuilder apply(Reporter reporter) {
+        StringBuilder report = reporter.buildReport(toString());
+        int depth = reporter.getDepth();
+        for (Parkable parkingLot : parkingLots) {
+            StringBuilder apply = parkingLot.apply(new Reporter(depth + 1, new StringBuilder()));
+            report.append(apply);
+        }
+        return report;
+    }
+
+    @Override
+    public String toString() {
+        return "ParkingLotBoy" + "\n";
+    }
+
+
 }
