@@ -46,6 +46,6 @@ public class ParkingLot implements Parkable {
 
     @Override
     public String toString() {
-        return "ParkingLot"+ "(" + this.getCapacity() + "/" + this.getFreeCarport() + ")" + "\n";
+        return this.getClass().getSimpleName() + "(" + this.getCapacity() + "/" + this.getFreeCarport() + ")" + "\n";
     }
 }

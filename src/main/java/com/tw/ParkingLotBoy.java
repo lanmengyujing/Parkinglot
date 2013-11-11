@@ -71,7 +71,7 @@ public class ParkingLotBoy implements Parkable {
 
     @Override
     public String toString() {
-        return "ParkingLotBoy" + "\n";
+        return this.getClass().getSimpleName() + "\n";
     }
 
 
